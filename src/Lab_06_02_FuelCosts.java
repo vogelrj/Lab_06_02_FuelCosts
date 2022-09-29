@@ -14,35 +14,36 @@ public class Lab_06_02_FuelCosts {
         System.out.println("What is your vehicle's fuel efficiency [mpg]? ");
         if (in.hasNextDouble()){
             fuelEff = in.nextDouble();
+            in.nextLine();
         }
         else{
             trash.equals(in.nextLine());
-            System.out.println("Invalid Entry.");
+            System.out.println("Invalid Entry. lease Try again.");
+            System.exit(0);
         }
         System.out.println("What is your vehicle's fuel capacity [gallons]? ");
         if (in.hasNextDouble()){
             tankSize = in.nextDouble();
+            in.nextLine();
         }
         else{
             trash.equals(in.nextLine());
-            System.out.println("Invalid Entry.");
+            System.out.println("Invalid Entry. Please Try again.");
+            System.exit(0);
         }
         System.out.println("What is the price of a gallon of gas? ");
         if (in.hasNextDouble()){
             gasPrice = in.nextDouble();
+            in.nextLine();
         }
         else{
             trash.equals(in.nextLine());
-            System.out.println("Invalid Entry.");
+            System.out.println("Invalid Entry. Please try again");
+            System.exit(0);
         }
         fuelRang = tankSize * fuelEff;
         tripCost = (gasPrice / fuelEff) * 100;
-        if (fuelRang == 0 || tripCost == 0){
-            System.out.println("Could not complete fuel/trip details. Please try again");
-        }
-        else {
             System.out.println("Your vehicle can drive for " + df.format(fuelRang) + " miles on a full tank.");
             System.out.println("The cost of driving for vehicle is $" + df.format(tripCost) + " per 100 miles.");
-        }
     }
 }
